@@ -15,3 +15,7 @@ def burger_list(request):
         'burgers': burgers,
     }
     return render(request, 'burger_list.html', context)
+
+
+def burger_search(request):
+    return render(request, 'burger_search.html')
