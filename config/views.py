@@ -18,4 +18,10 @@ def burger_list(request):
 
 
 def burger_search(request):
-    return render(request, 'burger_search.html')
+    keyword = request.GET.get('keyword')
+    burgers = Burger.objects.filter(name__contains=keyword)
+    context = {
+        'burgers': burgers,
+    }
+
+    return render(request, 'burger_search.html', context)
